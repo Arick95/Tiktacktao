@@ -4,20 +4,21 @@ body{
     align-items: center;
     flex-direction: column;
 }
-
+.transition {
+    transition: transform 180ms ease-in-out !important;
+}
 .horizontal_line{
     height: 10px;
     background-color: rgba(255, 0, 0, 0.767);
     width: 650px;
     position: absolute;
     z-index: 999;
+    transform: scaleX(0.0);
 }
 .make_vertical{
-    transform: rotate(90deg);
+    transform: scaleX(0.0);
 }
-.make_diagonal_left{
-    transform: rotate(45deg);
-}
+
 table{
      border-collapse: collapse;
      margin-top: 100px;
