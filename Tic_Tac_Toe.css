@@ -1,5 +1,26 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.horizontal_line{
+    height: 10px;
+    background-color: rgba(255, 0, 0, 0.767);
+    width: 650px;
+    position: absolute;
+    z-index: 999;
+}
+.make_vertical{
+    transform: rotate(90deg);
+}
+.make_diagonal_left{
+    transform: rotate(45deg);
+}
 table{
      border-collapse: collapse;
+     margin-top: 100px;
 }
 
 tr {
@@ -7,11 +28,12 @@ tr {
 }
 
 td {
-    width: 133px;
-    height: 133px;
+    width: 233px;
+    height: 233px;
     border: 5px solid black;
     position: relative;
     cursor: pointer;
+    
 }
 td:hover{
     background-color: rgba(0, 255, 34, 0.37);
@@ -34,8 +56,8 @@ table tr td:last-child {
 }
 
 .shape{
-    height: 80px;
-    width: 80px;
+    height: 180px;
+    width: 180px;
     position: absolute;
     top: 27px;
     left: 27px;
@@ -43,4 +65,19 @@ table tr td:last-child {
 
 .d-none{
     display: none;
+}
+.show_players{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    font-size: 60px;
+}
+.player_interaktive{
+    opacity: 0.2;
+}
+
+.player{
+    height: 100px;
+    width: 100px;
 }

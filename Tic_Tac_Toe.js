@@ -1,18 +1,24 @@
 let fields = [];
 
-let currentshape = 'cross';
+let currentshape = 'circle';
 
 
 function fillshape(id) {
 
-    if (currentshape == 'cross') {
-        currentshape = 'circle';
-    } else {
-        currentshape = 'cross';
+    if (!fields[id]) {
+
+        fields[id] = currentshape;
+        if (currentshape == 'circle') {
+            currentshape = 'cross';
+            document.getElementById('player_interaktive-1').classList.remove('player_interaktive');
+            document.getElementById('player_interaktive-2').classList.add('player_interaktive');
+        } else {
+            currentshape = 'circle';
+            document.getElementById('player_interaktive-2').classList.remove('player_interaktive');
+            document.getElementById('player_interaktive-1').classList.add('player_interaktive');
+        }
+        draw();
     }
-    fields[id] = currentshape;
-    console.log(fields);
-    draw();
 }
 
 function draw() {
@@ -53,9 +59,9 @@ function checkforWin() {
     if (fields[2] == fields[4] && fields[4] == fields[6] && fields[2]) {
         winner = fields[2];
     }
-   
- 
-   if(winner){
-    alert(winner);
-   }
+
+    if (winner) {
+        console.log(winner);
+    }
 }
+
