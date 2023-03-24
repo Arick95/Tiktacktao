@@ -1,13 +1,18 @@
-body{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
+
 .transition {
     transition: transform 180ms ease-in-out !important;
 }
-.horizontal_line{
+.test{
+    position: relative;
+}
+
+.horizontal_line {
     height: 10px;
     background-color: rgba(255, 0, 0, 0.767);
     width: 650px;
@@ -15,13 +20,30 @@ body{
     z-index: 999;
     transform: scaleX(0.0);
 }
-.make_vertical{
+
+.make_vertical {
     transform: scaleX(0.0);
 }
 
-table{
-     border-collapse: collapse;
-     margin-top: 100px;
+.Victory {
+    font-size: 45px;
+    color: white;
+    transition: color 2000ms ease-in-out;
+}
+
+.Victory_img {
+    height: 40px;
+    animation-duration: 4000ms ease-in-out;
+    animation-name: Victory_img_display;
+}
+@keyframes Victory_img_display {
+    from {opacity: 0;}
+    to{opacity: 1;}
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 50px;
 }
 
 tr {
@@ -34,9 +56,10 @@ td {
     border: 5px solid black;
     position: relative;
     cursor: pointer;
-    
+
 }
-td:hover{
+
+td:hover {
     background-color: rgba(0, 255, 34, 0.37);
 }
 
@@ -56,7 +79,7 @@ table tr td:last-child {
     border-right: 0;
 }
 
-.shape{
+.shape {
     height: 180px;
     width: 180px;
     position: absolute;
@@ -64,21 +87,42 @@ table tr td:last-child {
     left: 27px;
 }
 
-.d-none{
+.d-none {
     display: none;
 }
-.show_players{
+
+.show_players {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 30px;
     font-size: 60px;
 }
-.player_interaktive{
+
+.player_interaktive {
     opacity: 0.2;
 }
 
-.player{
+.player {
     height: 100px;
     width: 100px;
+}
+
+.restart-btn{
+    border: black solid 1px;
+    background-color: brown;
+    color: aqua;
+    height: 100px;
+    width: 200px;
+    font-size: 50px;
+    position: absolute;
+    left: 100px;
+    top: 300px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+.restart-btn:hover{
+    height: 120px;
+    width: 220px;
+    font-size: 60px;
 }

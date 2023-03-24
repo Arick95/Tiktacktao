@@ -1,11 +1,12 @@
 let fields = [];
 
 let currentshape = 'circle';
+let gameover = false;
 
 
 function fillshape(id) {
 
-    if (!fields[id]) {
+    if (!fields[id] && !gameover) {
 
         fields[id] = currentshape;
         if (currentshape == 'circle') {
@@ -69,7 +70,46 @@ function checkforWin() {
     }
 
     if (winner) {
-        console.log(winner);
+        gameover = true;
+        game_finish(winner);
+        document.getElementById('restart-btn').classList.remove('d-none');
     }
 }
 
+function game_finish(winner) {
+    if (winner == 'circle') {
+        document.getElementById('Victory').innerHTML = `
+        <img id="Victory_img" class="Victory_img" src="./img/Victory.png"> Herzlichen Glückwunsch Spieler 1, Du hast Gewonnen.
+        <img id="Victory_img" class="Victory_img" src="./img/Victory.png">`;
+        document.getElementById('Victory').style.color = 'seagreen';
+        document.getElementById('Victory').style.color = 'seagreen';
+    }
+    if (winner == 'cross') {
+        document.getElementById('Victory').innerHTML = `
+        <img id="Victory_img" class="Victory_img" src="./img/Victory.png"> Herzlichen Glückwunsch Spieler 2, Du hast Gewonnen.
+        <img id="Victory_img" class="Victory_img" src="./img/Victory.png">`;
+        document.getElementById('Victory').style.color = 'seagreen';
+    }
+}
+
+function Restart() {
+    gameover = false;
+    currentshape = 'circle';
+    fields = [];
+    document.getElementById('player_interaktive-1').classList.remove('player_interaktive');
+    document.getElementById('player_interaktive-2').classList.add('player_interaktive');
+    document.getElementById('restart-btn').classList.add('d-none');
+    document.getElementById('Victory').innerHTML = `<div id="Victory" class="Victory">
+    <img id="Victory_img" class="Victory_img d-none" src="./img/Victory.png">Here is not a Text
+    <img id="Victory_img" class="Victory_img d-none" src="./img/Victory.png"></div>`;
+    document.getElementById('Victory').style.color = 'white';
+    document.getElementById('Victory_img').style.opacity = '0';
+
+    for (let i = 1; i < 8; i++) {
+        document.getElementById('line-' + i).style.transform = 'scaleX(0)';;
+    }
+    for (let i = 0; i < 9; i++) {
+        document.getElementById('circle-' + i).classList.add('d-none');
+        document.getElementById('cross-' + i).classList.add('d-none');
+    }
+}
